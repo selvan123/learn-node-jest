@@ -13,7 +13,7 @@ pipeline {
                 // Get some code from a GitHub repository
                 //git 'https://github.com/selvan123/learn-node-jest.git' --branch main
 
-                // Run Maven on a Unix agent.
+                
                 sh "npm install"
                 sh "npm test"
             }
