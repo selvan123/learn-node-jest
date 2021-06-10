@@ -22,15 +22,20 @@ pipeline {
         stage('Static Code Analysis') {
           environment {
             SCANNER_HOME = tool 'SonarQubeScanner'
-            ORGANIZATION = "selvan123-github"
-            PROJECT_NAME = "selvan123_myapp"
+            ORGANIZATION = "selvans"
+            PROJECT_NAME = "selvans_myapp"
           }
           steps {
             withSonarQubeEnv('SonarCloud') {
-                sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
-                -Dsonar.java.binaries=build/classes/java/ \
-                -Dsonar.projectKey=$PROJECT_NAME \
-                -Dsonar.sources=.'''
+                sh '''$SCANNER_HOME/bin/sonar-scanner \
+                  -Dsonar.projectKey=selvans_myapp \
+                  -Dsonar.projectName=myapp \
+                  -Dsonar.projectVersion=1.0 \
+                  -Dsonar.sources=. \
+                  -Dsonar.organization=selvans \
+                  -Dsonar.qualitygate.wait=true \
+                  -Dsonar.qualitygate.timeout=300 \
+                  -Dsonar.sourceEncoding=UTF-8 \                
             }
           }
         }
