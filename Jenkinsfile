@@ -28,14 +28,10 @@ pipeline {
           steps {
             withSonarQubeEnv('SonarCloud') {
                 sh '''$SCANNER_HOME/bin/sonar-scanner \
-                  -Dsonar.projectKey=selvans_myapp \
-                  -Dsonar.projectName=myapp \
-                  -Dsonar.projectVersion=1.0 \
+                  -Dsonar.projectKey=myapp \
                   -Dsonar.sources=. \
-                  -Dsonar.organization=selvans \
-                  -Dsonar.qualitygate.wait=true \
-                  -Dsonar.qualitygate.timeout=300 \
-                  -Dsonar.sourceEncoding=UTF-8 '''
+                  -Dsonar.host.url=http://40.71.116.245:9000 \
+                  -Dsonar.login=a0433fd7dc16a1fb9cf268e709e9b2dac550a1f2
             }
           }
         }
