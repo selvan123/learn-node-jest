@@ -35,7 +35,7 @@ pipeline {
                   -Dsonar.organization=selvans \
                   -Dsonar.qualitygate.wait=true \
                   -Dsonar.qualitygate.timeout=300 \
-                  -Dsonar.sourceEncoding=UTF-8 \                
+                  -Dsonar.sourceEncoding=UTF-8         
             }
           }
         }
